@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 1000px;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+
+    nav ul li:hover {
+      background-color: #555;
+    }
+
+    nav ul ul {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    nav ul ul li {
+      margin-right: 0;
+      display: block;
+    }
+
+    nav ul ul li a {
+      padding: 10px;
+      display: block;
+      color: #fff;
+    }
+
+    nav ul li:hover  ul {
+      display: block;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px;
+    }
+
+    section {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      width: 160%;
+      height: 500px;
+    }
+
+    .gallery-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      width: 160%;
+      height: 500px;
+
+    }
+
+    .gallery img {
+      width: 33.33%;
+      padding: 5px;
+
+    }
+
+    .content {
+      width: 100%;
+      margin-left: 800px;
+      background-color: #cccccc;
+      padding: 100px;
+      height: 520px;
+      margin-top: -460px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+
+    .card {
+      width: 500px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      margin: 10px;
+      background-color: #212121;
+    }
+
+    .card-header {
+      background-color: #333;
+      padding: 16px;
+      text-align: center;
+      width: 1000px;
+    }
+
+    .card-header .text-header {
+      margin: 0;
+      font-size: 18px;
+      color: rgb(255, 255, 255);
+    }
+
+    .card-body {
+      padding: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 1px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+      width: 70%;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      margin-left: 13px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #333;
+      color: #fff;
+      text-transform: uppercase;
+      transition: background-color 0.2s ease-in-out;
+      cursor: pointer
+    }
+
+    .btn:hover {
+      background-color: #ccc;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a th:href="@{/index}">Home</a>
+      <li><a th:href="@{/registration}">registration</a>
+      <li><a th:href="@{/index}">view job</a></li>
+      <li><a th:href="@{/logout}">logout</a></li>
+    </ul>>
+  </nav>
+</header>
+
+<main>
+  <center>
+    <div class="container">
+      <div class="card-header">
+
+        <div class="card-body">
+          <form th:action="@{/index/{jobId} (jobId=${job.jobId})}" th:object="${job}" method="post">
+            <div th:if="${param.success}">
+              <p>job was successfully posted</p>
+            </div>
+
+            <div th:if="${param.error}">
+              <p>job was not successfully posted</p>
+            </div>
+
+            <div class="form-group">
+              <label for="id">Job Id:</label>
+              <input th:field="*{jobId}" required="" class="form-control" name="jobid" id="job" type="text">
+            </div>
+            <div class="form-group">
+              <label for="tile">Job Title:</label>
+              <input th:field="*{title}" required="" class="form-control" name="title" id="title" type="text">
+            </div>
+
+            <div class="form-group">
+              <label for="">department:</label>
+              <input th:field="*{hospital}" required="text" class="form-control" name="hos" id="hos" type="text">
+            </div>
+            <div class="form-group">
+              <label for="">Edicational reqired:</label>
+              <input th:field="*{educationRequired}" required="text" class="form-control" name="req" id="req" type="text">
+            </div>
+
+            <input type="submit" class="btn" value="update"> </form>
+        </div>
+      </div>
+    </div>
+  </center>
+  </div>
+  </section>
+</main>
+
+</body>
+</html>

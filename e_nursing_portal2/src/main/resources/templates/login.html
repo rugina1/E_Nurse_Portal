@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .card {
+            width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 10px;
+            background-color: #212121;
+            height: 500px;
+            border-radius: 20px;
+        }
+
+        .card-header {
+            background-color: #333;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .card-header .text-header {
+            margin: 0;
+            font-size: 18px;
+            color: rgb(255, 255, 255);
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 1px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 70%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            margin-left: 13px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+            text-transform: uppercase;
+            transition: background-color 0.2s ease-in-out;
+            cursor: pointer
+        }
+
+        .btn:hover {
+            background-color: #ccc;
+            color: #333;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 1000px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        nav ul li:hover {
+            background-color: #555;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        nav ul ul li {
+            margin-right: 0;
+            display: block;
+        }
+
+        nav ul ul li a {
+            padding: 10px;
+            display: block;
+            color: #fff;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        section {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            width: 160%;
+            height: 500px;
+        }
+
+        .gallery-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            width: 160%;
+            height: 500px;
+        }
+
+        .gallery img {
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        .content {
+            width: 100%;
+            margin-left: 500px;
+            background-color: #cccccc;
+            padding: 100px;
+            height: 500px;
+            margin-top: -510px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .bien{
+            text-align:justify;
+            font-family: Algerian;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <h1>E-Nursing system</h1>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="gallery">
+
+        <div class="gallery-wrapper">
+            <center>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="text-header">Login page</div>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/login}"  method="post">
+
+                            <div th:if="${param.error}">
+                                <p style="color: red"> Invalid username or password</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input required="" class="form-control" name="email" id="email" type="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">password:</label>
+                                <input  required="text" class="form-control" name="password" id="confirm-password" type="password">
+                            </div>
+                            <input type="submit" class="btn" value="Login"> </form>
+
+                    </div>
+
+                    <div class="bien">
+                        Don't you have an account?
+                    <div><a th:href="@{/registration}">create account</a>
+                    </div>
+                </div>
+                </div>>
+            </center>
+
+        </div>
+    </section>
+
+    <section class="content">
+        <h2>welcome to our system</h2>
+        <h2 >Choose your Courses here</h2>
+        <p>Unlimited access to  world-class courses, hands-on projects, and job-ready certificate programs. And the syllabus were prepared by the certified Medical university teachers</p>
+    </section>
+</main>
+    </div>
+</body>
+</html>

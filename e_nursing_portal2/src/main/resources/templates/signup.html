@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Nurse</title>
+    <style>
+        .card {
+            width: 500px;
+            border: 1px solid #ccc;
+
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 10px;
+            background-color: #212121;
+            height: 500px;
+        }
+
+        .card-header {
+            background-color: #333;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .card-header .text-header {
+            margin: 0;
+            font-size: 18px;
+            color: rgb(255, 255, 255);
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 1px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 70%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            margin-left: 13px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+            text-transform: uppercase;
+            transition: background-color 0.2s ease-in-out;
+            cursor: pointer
+        }
+
+        .btn:hover {
+            background-color: #ccc;
+            color: #333;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 1000px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        nav ul li:hover {
+            background-color: #555;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        nav ul ul li {
+            margin-right: 0;
+            display: block;
+        }
+
+        nav ul ul li a {
+            padding: 10px;
+            display: block;
+            color: #fff;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        section {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            width: 160%;
+            height: 500px;
+        }
+
+        .gallery-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            width: 160%;
+            height: 500px;
+        }
+
+        .gallery img {
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        .content {
+            width: 100%;
+            margin-left: 500px;
+            background-color: #cccccc;
+            padding: 100px;
+            height: 500px;
+            margin-top: -510px;
+
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <h1>E_Nurse_Portal</h1>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="gallery">
+
+        <div class="gallery-wrapper">
+            <center>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="text-header">Create account </div>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/registration}" th:object="${user}" method="post">
+
+                            <div class="form-group">
+                                <label for="email">First Name:</label>
+                                <input th:field="*{fName}" required="" class="form-fnamecontrol" name="fname" id="" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Last Name:</label>
+                                <input th:field="*{lName}" required="text" class="form-control" name="password" id="lname" type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input th:field="*{email}" required="" class="form-control" name="email" id="email" type="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">password:</label>
+                                <input th:field="*{password}" required="text" class="form-control" name="password" id="confirm-password" type="password">
+                            </div>
+                            <input type="submit" class="btn" value="signup"> </form>
+                    </div>
+
+                </div>
+            </center>
+        </div>
+    </section>
+    <section class="content">
+        <h2>welccome to this page</h2>
+        <p>Welcome to our website! We are a team of passionate individuals who strive to provide our customers with the best products and services possible. Our mission is to exceed your expectations by offering high-quality solutions that meet your needs and preferences. With years of experience in the industry, we have gained a wealth of knowledge and expertise that we are excited to share with you. We are committed to providing exceptional customer service and building long-lasting relationships with our clients. Thank you for choosing us, and we look forward to serving you!</p>
+        <p>At our School,. create account and keep enjoying our webApp !</p>
+    </section>
+</main>
+</body>
+</html>
